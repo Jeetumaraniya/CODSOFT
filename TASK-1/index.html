@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+    <head>
+        <title>Portfolio</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+        <script src="https://unpkg.com/scrollreveal"></script>
+        <style> 
+            input[type=textarea] {
+                margin-top: 25px;
+              width: 200px;
+              box-sizing: border-box;
+              border: 2px solid black;
+              border-radius: 25px;
+              font-size: 16px;
+              background-color: transparent;
+              background-image: url('siocon1.png');
+              background-position: 8px 5px;
+              background-size: 30px ;
+              background-repeat: no-repeat;
+              padding: 12px 20px 12px 40px;
+              -webkit-transition: width 0.4s ease-in-out;
+              transition: width 0.4s ease-in-out;
+              margin-left: 1000px;
+            }
+            
+            input[type=textarea]:focus {
+              width: 30%;
+            }
+            
+    </style>
+     </head>
+<body> 
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<div id="header">
+    <div class="container">
+        <header>
+            <nav>
+            <img src="https://img.freepik.com/premium-vector/leaf-ecology-nature-logo-template_1948-16220.jpg?w=826" class="logo" style="height: 50px; width: 50px;">
+            
+             <ul style="margin-bottom: 100%;">
+                 <li><a href="#header">Home</a></li>
+                 <li><a href="#about">About</a></li>
+                 <li><a href="#Contact">Contact</a></li>
+                 <li><a href="#explore">Explore</a></li>
+             </ul>
+            
+         </nav> 
+         <div class="wrapper" style="margin-left:800px;">
+           
+          <script src="suggestions.js"></script> 
+             <script src="script.js"></script> 
+         </header>
+         <div class="header-text">
+          <p>Devloper</p>    
+          <h1>Hi,<span>I am Jeet</span><br>From Bharat</h1>  
+       </div>
+         
+</div>
+        </div>
+        
+    
+        
+<div id="about">
+    <div class="container">
+        <div class="row">
+            <div class="about-col-1">
+                <img src="My.jpg">
+            </div>
+            <div class="about-col-2">
+                <h1 class="sub-title">About me</h1>
+                 <p>Welcome to My portfolio! a passionate computer field student with a keen interest in Web developing, Video graphy, Photo graphy. 
+                    Throughout our academic journey, I’ve been dedicated to honing my skills in Web developing and exploring innovative ways to acquring the goal of very 
+                    convinient way to handle a website. </p>
+
+                    <div class="tab-title">
+                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links"  onclick="opentab('experience')">Experience</p>                   
+                        <p class="tab-links"  onclick="opentab('education')">Education</p>                   
+                     </div>
+                    <div class="tab-contents active-tab" id="skills">
+                           <ul>
+                            <li><span>HTML</span><br>Designing Web interfaces</li>
+                            <li><span>Web Developing</span><br>Web app Developing</li>
+                            <li><span>Graphy</span><br>Photo graphy<br>Video graphy</li>
+                            </ul>
+                    </div>
+                    <div class="tab-contents" id="experience">
+                            <ul>
+                                <li><span>2023 - Current</span><br>HTML/Css Training at Atmiya University</li>
+                            </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                         <li><span>BCA</span><br>In Atmiya University</li>
+                         </ul>
+                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+        <div id="Contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact Me</h1>
+                <p><i class="fa-solid fa-paper-plane"></i>umaraniyajeet@.com</p>
+                <div class="social-icons">
+                    <a href=""><i class="fa-brands fa-square-facebook"></i></a>
+                    <a href=""><i class="fa-brands fa-instagram"></i></a>
+                    <a href="Umaraniya jeet.pdf" download="umaraniyajeet.pdf">
+                        <button class="btn2">My CV</button>
+                      </a>  
+                </div>
+               
+                
+            </div>
+            <div class="contact-right">
+                 <form name="submit-to-google-sheet">
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="email" name="Email" placeholder="Your Email" required>
+                    <textarea name="message" rows="6" placeholder="Your Message"></textarea>
+                    <button type="submit" class="btn2">Submit</button>
+                </form>
+                <span id="msg"></span>
+            </div>
+        </div>
+    </div>
+        <div class="copyright">
+            <p>Copyright © BHARAT.Umaraniya jeet<i class="fa-solid fa-code"></i>All right reserved</p>
+    </div>
+</div>
+
+<script>
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+    
+    function opentab(tabname) {
+      for (tablink of tablinks) {
+        tablink.classList.remove("active-link");
+      }
+      for(tabcontent of tabcontents) {
+        tabcontent.classList.remove("active-tab");
+      }
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+      }
+    </script>
+
+</script>
+
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwfZU4w6Ib5afETEDNWNy5BfTUbiF6CPMWw5VHkcHlId7AO1sJR9Aoomgd0enMXktPl/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML = "Message sent successfuly"
+            setTimeout(function(){
+                msg.innerHTML = ""
+            },5000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+    ScrollReveal({ 
+        reset: true,
+        distance: '100px',
+        duration: 1500,
+        delay: 400
+     });
+     ScrollReveal().reveal('.container',{delay:500}); 
+     ScrollReveal().reveal('.header-text' );
+     ScrollReveal().reveal('.about-col-1', { delay: 500 });
+     ScrollReveal().reveal('.about-col-2',{ delay: 500 });
+     ScrollReveal().reveal('.tab-contents active-tab', { delay: 500 });
+     ScrollReveal().reveal('.contact-right', { delay: 500 });
+     ScrollReveal().reveal('.copyright','.btn2', { delay: 500 });
+     ScrollReveal().reveal('.logos', { delay: 500 });
+     
+  </script>
+  <script>
+// Get the button
+let mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+</script>
+</body>
+</html>
